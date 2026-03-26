@@ -7,7 +7,7 @@ function goToScreen(id) {
 
 function startTimer() {
     goToScreen('screen3');
-    let time = 900; // ** เดโม่ 5 วินาที / ใช้งานจริงใช้ 900 **
+    let time = 60; // ** เดโม่ 5 วินาที / ใช้งานจริงใช้ 900 **
     const display = document.getElementById('countdown');
     const btn = document.getElementById('cameraBtn');
 
