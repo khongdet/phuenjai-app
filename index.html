@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คลินิกเพื่อนใจ Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="mobile-frame">
+        <div class="app-header">💖 คลินิกเพื่อนใจ (Official)</div>
+
+        <div id="screen1" class="screen active">
+            <div class="welcome-hero">👋</div>
+            <h2>ยินดีต้อนรับค่ะ</h2>
+            <p>พื้นที่ปลอดภัยเพื่อวัยรุ่นไทย <br>ข้อมูลของน้องจะเป็นความลับ 100%</p>
+            <div class="video-container">
+                <div class="video-placeholder">🎬 วิดีโอแนะนำโดยพี่นักสุขศึกษา</div>
+            </div>
+            <button class="btn-main" onclick="goToScreen('screen2')">เริ่มขั้นตอนการตรวจ</button>
+        </div>
+
+        <div id="screen2" class="screen">
+            <h3>วิธีใช้ชุดตรวจ 🩸</h3>
+            <p>ดูคลิปนี้แล้วทำตามทีละขั้นตอนนะคะ</p>
+            <div class="video-container main-video">
+                <div class="video-placeholder">▶️ วิดีโอสอนการใช้งานอย่างละเอียด</div>
+            </div>
+            <button class="btn-main" onclick="startTimer()">หยดน้ำยาแล้ว เริ่มจับเวลา</button>
+        </div>
+
+        <div id="screen3" class="screen">
+            <h3 style="margin-bottom:5px;">รอผลตรวจสักครู่ค่ะ ⏳</h3>
+            <div class="timer-display" id="countdown">15:00</div>
+            <p style="font-size: 14px; color: #ff7675;">*ห้ามปิดหน้านี้จนกว่าจะครบเวลา*</p>
+            <div class="content-slider">
+                <div class="video-placeholder" style="background:#ffeaa7; color:#d63031; border:none;">
+                    📱 วิดีโอสั้น / ควิซทายใจ <br>
+                    <small>(ดึงดูดความสนใจระหว่างรอ 15 นาที)</small>
+                </div>
+            </div>
+            <button class="btn-main disabled" id="cameraBtn" disabled onclick="goToScreen('screen4')">รอเวลาครบกำหนด...</button>
+        </div>
+
+        <div id="screen4" class="screen">
+            <h3>แจ้งผลการตรวจ 📸</h3>
+            <p>ถ่ายรูปตลับตรวจคู่กับสติกเกอร์ QR Code บนกล่อง เพื่อยืนยันข้อมูลค่ะ</p>
+            <label class="camera-card">
+                <span style="font-size: 40px;">📷</span><br>
+                แตะเพื่อเปิดกล้องถ่ายรูป
+                <input type="file" accept="image/*" capture="environment" style="display:none;">
+            </label>
+            <div class="result-selector">
+                <button class="res-btn" onclick="selectResult(this, 'negative')">1 ขีด (ปกติ)</button>
+                <button class="res-btn" onclick="selectResult(this, 'positive')">2 ขีด (พบเชื้อ)</button>
+            </div>
+            <button class="btn-main" id="submitBtn" onclick="submitData()">ส่งรายงานผลตรวจ</button>
+        </div>
+
+        <div id="screen5" class="screen">
+            <div id="result-content"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
